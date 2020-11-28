@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+
+public class SimulacionPilas {
+    Scanner leer = new Scanner(System.in);
+            
+    //1. creo el arreglo
+    private static String Simula [];
+    private String Palabra;
+    private int contador;
+    private int tamaño=5;
+   // 2. inicializo el arreglo
+   public SimulacionPilas(){
+ Simula= new String[tamaño];
+ contador=0;
+   
+   }
+   //3. creando el metodo insertar
+   
+    public void insertar() {
+        
+        if(lleno()){//verificar si esta llena para mostrar un mensaaje
+           System.out.println("YA NO PUEDES INGRESAR MAS DATOS ESTA LLLENA");
+        }else {//caso contrario pidiendo datos para la pila
+        System.out.println("INGRESE LA PALABRA ");
+        Palabra=leer.next();//guardando el la variable palabra
+      Simula[contador]=Palabra;//guardando con  el dato con el contador para la posiciones 
+           contador++;//incrementando para que contador cambien su valor alta la condicon del arreglo
+       }
+    }
+//crenado el metodo eliminar 
+    public  String elimilar(){
+        //utilisaqmos una variable para contener la posicion anterior
+        String aux =" ";//la inicializamos en vacio
+    if(Vacio()){//verificamos si esta vacia para mostrar un mesaje
+     System.out.println("YA NO PUEDES QUITAR POR QUE ESTA VACIA");
+    }else //en caso contrario guaradar la posicion en a aux con el contador disminuyendole uno
+    aux=Simula[contador-1]=" ";//asignando espacio en las posiciones del arreglo 
+    contador--;//disminuyendo contador para regresar las posiciones que tiene datos 
+    return aux;
+ }
+    public  void getmostrar(){
+        //imprimiendo cada posicion al reverso
+        
+            for (int i = Simula.length - 1; i >= 0 ; i--){
+            System.out.println(Simula[i]);
+            }
+   }
+    //3 paso analizando las condiciones de la pila como si esta lllena
+public boolean lleno(){
+
+        return tamaño==contador;
+ }
+//paso analizando las condiciones de la pila como si esta vacia
+public boolean Vacio(){
+
+        return contador==0;
+ }
+}
